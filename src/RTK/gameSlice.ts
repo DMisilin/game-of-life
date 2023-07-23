@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { generateLand, landTick } from 'src/helpers/methods';
+import { generateLand, landTick } from '../helpers/methods';
 
-const initialState = {
-  width: 10,
-  boxesMatrix: generateLand(10, 10),
+export const initialState = {
+  width: 20,
+  height: 20,
+  boxesMatrix: generateLand(20, 20),
   running: false,
 };
 
@@ -20,23 +21,21 @@ export const gameSlice = createSlice({
       state.boxesMatrix[x][y] = value ? 0 : 1;
     },
     clearLand: (state = initialState) => {
-      state.boxesMatrix = generateLand(10, 10);
+      state.boxesMatrix = generateLand(state.width, state.height);
     },
     nextTick: (state = initialState) => {
       state.boxesMatrix = landTick(state.boxesMatrix);
     },
-    modifyRunning: (state = initialState, action) => {
-      state.running = action.payload;
-    },
+    // modifyRunning: (state = initialState, action) => {
+    //   state.running = action.payload;
+    // },
     setRandom: (state = initialState) => {
-      state.boxesMatrix = generateLand(10, 10, true);
+      state.boxesMatrix = generateLand(state.width, state.height, true);
     },
   },
 });
 
-export const { setBoxState, nextTick, modifyRunning, clearLand, setRandom } =
+export const { setBoxState, nextTick, clearLand, setRandom } =
   gameSlice.actions;
-
-// export const selectCount = (state: RootState) => state.counter.value;
 
 export default gameSlice.reducer;

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Button.css';
 
 type ButtonPropsType = {
   name: string;
@@ -6,9 +7,9 @@ type ButtonPropsType = {
   click: () => void;
 };
 
-const Button = ({ name, text, click }: ButtonPropsType) => {
+const Button = ({ name = 'Name', text = 'Button', click }: ButtonPropsType) => {
   return (
-    <button className={name} onClick={click} key={`${name}-${text}`}>
+    <button className="btn" onClick={click} key={`${name}-${text}`}>
       {text}
     </button>
   );

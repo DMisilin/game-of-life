@@ -1,16 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { StateType } from 'src/helpers/types';
-import { Row } from 'components/Row';
+import { Row } from '../Row';
+import './Land.css';
+import { useAppSelector } from '../../RTK/hooks';
 
 const Land = () => {
-  const matrix = useSelector((state: StateType) => {
+  const matrix = useAppSelector((state: StateType) => {
     return state.game.boxesMatrix;
   });
 
   return (
-    <div>
-      <div className="land">
+    <div className="land">
+      <div>
         {matrix.map((elm, index) => (
           <Row key={index} content={elm} order={index}></Row>
         ))}

@@ -1,7 +1,8 @@
 import React from 'react';
-import Button from 'components/Button/Button';
-import { clearLand, nextTick, setRandom } from 'src/RTK/gameSlice';
-import { useAppDispatch } from 'src/RTK/store';
+import Button from '../Button/Button';
+import { clearLand, nextTick, setRandom } from '../../RTK/gameSlice';
+import { useAppDispatch } from '../../RTK/hooks';
+import './Panel.css';
 
 const Panel = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ const Panel = () => {
   };
 
   return (
-    <div className="buttonPanel">
+    <div className="buttonPanel" role="PanelRole">
       <Button name="next" text="Next" click={next} />
       <Button name="run" text="Run" click={run} />
       <Button name="stop" text="Stop" click={stop} />

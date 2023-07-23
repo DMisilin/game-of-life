@@ -1,7 +1,7 @@
 import React from 'react';
-import { setBoxState } from 'src/RTK/gameSlice';
-import { StyledBox } from 'components/Box/styles';
-import { useAppDispatch } from 'src/RTK/store';
+import { StyledBox } from './styles';
+import { setBoxState } from '../../RTK/gameSlice';
+import { useAppDispatch } from '../../RTK/hooks';
 
 type BoxPropsType = { isLife: boolean; x: number; y: number };
 
@@ -12,7 +12,7 @@ const Box = ({ isLife, x, y }: BoxPropsType) => {
     dispatch(setBoxState({ x, y }));
   };
 
-  return <StyledBox isLife={isLife} onClick={update} />;
+  return <StyledBox isLife={isLife} onClick={update} role="BoxRole" />;
 };
 
 export default Box;
