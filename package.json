@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest --config=jest.config.js --no-cache --coverage",
     "dev": "webpack-cli serve --mode=development --env development --open --hot",
+    "lint": "eslint . --ext .ts",
+    "build": "webpack --mode=production --env production --progress",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --force-rebuild"
