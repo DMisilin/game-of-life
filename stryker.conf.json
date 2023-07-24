@@ -4,5 +4,6 @@
   "typescriptChecker": {
     "prioritizePerformanceOverAccuracy": true
   },
-  "concurrency": 4
+  "concurrency": 4,
+  "ignorePatterns": ["*.stories.tsx", "store.ts"]
 }

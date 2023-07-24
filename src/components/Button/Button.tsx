@@ -7,7 +7,7 @@ type ButtonPropsType = {
   click: () => void;
 };
 
-const Button = ({ name = 'Name', text = 'Button', click }: ButtonPropsType) => {
+const Button = ({ name, text, click }: ButtonPropsType) => {
   return (
     <button className="btn" onClick={click} key={`${name}-${text}`}>
       {text}

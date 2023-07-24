@@ -10,7 +10,7 @@ const Land = () => {
   });
 
   return (
-    <div className="land">
+    <div className="land" role="LandRole">
       <div>
         {matrix.map((elm, index) => (
           <Row key={index} content={elm} order={index}></Row>
