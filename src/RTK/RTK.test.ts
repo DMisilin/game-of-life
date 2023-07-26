@@ -4,6 +4,7 @@ import reducer, {
   setBoxState,
   nextTick,
   clearLand,
+  modifySize,
 } from './gameSlice';
 import { generateLand } from '../helpers/methods';
 
@@ -45,6 +46,22 @@ describe('RTK', () => {
     }, setBoxState({x: 0, y: 1}))).toEqual({
       ...initialState,
       boxesMatrix: [[0, 1], [0, 0]],
+    });
+  });
+
+  test('Set modify size action', () => {
+    expect(reducer(initialState, modifySize({value: 10}))).not.toEqual(initialState);
+  });
+
+  test('Set modify size action, check modified', () => {
+    expect(reducer({
+      ...initialState,
+      width: 10,
+      height: 10,
+    }, modifySize({value: 10}))).toEqual({
+      ...initialState,
+      width: 10,
+      height: 10,
     });
   });
 });

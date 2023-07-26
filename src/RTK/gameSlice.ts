@@ -26,16 +26,17 @@ export const gameSlice = createSlice({
     nextTick: (state = initialState) => {
       state.boxesMatrix = landTick(state.boxesMatrix);
     },
-    // modifyRunning: (state = initialState, action) => {
-    //   state.running = action.payload;
-    // },
+    modifySize: (state = initialState, action) => {
+      state.width = action.payload.value;
+      state.height = action.payload.value;
+    },
     setRandom: (state = initialState) => {
       state.boxesMatrix = generateLand(state.width, state.height, true);
     },
   },
 });
 
-export const { setBoxState, nextTick, clearLand, setRandom } =
+export const { setBoxState, nextTick, clearLand, setRandom, modifySize } =
   gameSlice.actions;
 
 export default gameSlice.reducer;

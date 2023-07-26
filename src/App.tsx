@@ -1,12 +1,15 @@
 import React from 'react';
 import Land from 'components/Land/Land';
 import Panel from 'components/Panel/Panel';
+import './app.css';
 
 const App = () => {
   return (
     <>
-      <Panel />
-      <Land />
+      <div className="app">
+        <Panel />
+        <Land />
+      </div>
     </>
   );
 };
