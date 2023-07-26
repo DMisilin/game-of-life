@@ -42,9 +42,9 @@ const Panel = () => {
       <Button name="stop" text="Stop" click={stop} />
       <Button name="clear" text="Clear" click={clear} />
       <Button name="random" text="Random" click={random} />
-      <Button name="15" text="15x15" click={() => setSize(15)} />
-      <Button name="20" text="20x20" click={() => setSize(20)} />
-      <Button name="25" text="25x25" click={() => setSize(25)} />
+      <Button name="15" text="20x20" click={() => setSize(20)} />
+      <Button name="20" text="25x25" click={() => setSize(25)} />
+      <Button name="25" text="35x35" click={() => setSize(35)} />
     </div>
   );
 };
