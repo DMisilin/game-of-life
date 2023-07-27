@@ -13,6 +13,10 @@ const Panel = () => {
   };
 
   const run = () => {
+    if (timer) {
+      clearInterval(timer);
+    }
+
     timer = setInterval(() => {
       next();
     }, 400);
