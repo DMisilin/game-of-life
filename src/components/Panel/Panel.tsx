@@ -14,7 +14,7 @@ const Panel = () => {
 
   const run = () => {
     if (timer) {
-      clearInterval(timer);
+      return;
     }
 
     timer = setInterval(() => {
@@ -24,6 +24,7 @@ const Panel = () => {
 
   const stop = () => {
     clearInterval(timer);
+    timer = null;
   };
 
   const clear = () => {
@@ -35,6 +36,7 @@ const Panel = () => {
   };
 
   const setSize = (value: number) => {
+    stop();
     dispatch(modifySize({ value }));
     dispatch(clearLand());
   };
