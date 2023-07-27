@@ -28,6 +28,7 @@ const Panel = () => {
   };
 
   const clear = () => {
+    stop();
     dispatch(clearLand());
   };
 
