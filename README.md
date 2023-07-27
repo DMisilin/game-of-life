@@ -6,19 +6,34 @@
 <br>
 
 Добро пожаловать! 
-Данный репозиторий - проектная работа по курсу от ОТУС [React.js Developer](https://otus.ru/learning/225406/)
+Данный репозиторий - проектная работа по курсу от OTUS [React.js Developer](https://otus.ru/learning/225406/)
 
 ## What is it?
 
-Работа представляет собой веб версию игры Жизнь [Правила игры](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+Работа представляет собой веб версию игры [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+
+![img.png](img.png)
 
 ## Table of Contents
 
 - [What is it?](#what-is-it)
 - [Table of Contents](#table-of-contents)
+- [Rules and options](#rules-and-options)
 - [Getting Started](#getting-started)
 - [Core team](#core-team)
 - [License](#license)
+
+## Rules
+
+Правила игры стандартные, без авторских доработок
+
+Проект - единственная страница с игрой
+
+Настройки и опции:
+- каждый элемент (box) кликабелен и может менять свое состояние по клику
+- возможность управление игрой (старт, стоп)
+- возможность случайного заполнения и очистки поля
+- можно выбирать размер поля от 20 до 35 боксов
 
 ## Getting Started
 
@@ -42,7 +57,10 @@
 
 ## Core team
 
-- [@DMisilin](https://github.com/DMisilin)
+- Developer [@DMisilin](https://github.com/DMisilin)
+- Designer [@dmIsIlIn](https://github.com/DMisilin)
+- Tester [@dmisiliN](https://github.com/DMisilin)
+- Admin [@dm](https://github.com/DMisilin)
 
 ## License
 

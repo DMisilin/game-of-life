@@ -70,3 +70,9 @@ export const generateLand = (
 
   return result;
 };
+
+export const getRandomColor = () => {
+  const colors = ['#557A95', '#7395AE', '#557A95'];
+  const index = Math.round(Math.random() * colors.length - 1);
+  return colors[index] || '#7395AE';
+};

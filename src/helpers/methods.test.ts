@@ -1,4 +1,4 @@
-import { generateLand, landTick } from './methods';
+import { generateLand, landTick, getRandomColor } from './methods';
 
 describe('Methods tests', () => {
   test('generateLand, check matrix size', () => {
@@ -217,5 +217,22 @@ describe('Methods tests', () => {
       [0,0,0,1,1,0],
       [0,0,0,0,0,0],
     ]);
+  });
+
+  test('getRandomColor returning type', () => {
+    const result = getRandomColor();
+    expect(typeof result).toBe('string');
+  });
+
+  test('getRandomColor return some color', () => {
+    const colors = ['#557A95', '#7395AE', '#557A95'];
+    const result1 = getRandomColor();
+    expect(colors.includes(result1)).toBe(true);
+
+    const result2 = getRandomColor();
+    expect(colors.includes(result2)).toBe(true);
+
+    const result3 = getRandomColor();
+    expect(colors.includes(result3)).toBe(true);
   });
 });

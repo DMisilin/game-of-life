@@ -18,6 +18,9 @@ describe('Button element', () => {
     expect(screen.getByText('Stop')).toBeInTheDocument();
     expect(screen.getByText('Clear')).toBeInTheDocument();
     expect(screen.getByText('Random')).toBeInTheDocument();
+    expect(screen.getByText('20x20')).toBeInTheDocument();
+    expect(screen.getByText('25x25')).toBeInTheDocument();
+    expect(screen.getByText('35x35')).toBeInTheDocument();
   });
 
   test('Click button "Random"', () => {
@@ -91,5 +94,54 @@ describe('Button element', () => {
 
     const contentAfter = scope.store.getState().game.boxesMatrix;
     expect(contentAfter).not.toMatchObject(contentBefore);
-  })
+  });
+
+  test('Click button "20x20"', () => {
+    const scope = renderWithProviders(<Panel />);
+
+    fireEvent.click(screen.getByText('25x25'));
+    const { width: widthBefore, height: heightBefore } = scope.store.getState().game;
+    expect(widthBefore).toBe(25);
+    expect(heightBefore).toBe(25);
+
+    fireEvent.click(screen.getByText('20x20'));
+    const { width: widthAfter, height: heightAfter } = scope.store.getState().game;
+
+    expect(widthAfter).not.toEqual(widthBefore);
+    expect(heightAfter).not.toEqual(heightBefore);
+    expect(widthAfter).toBe(20);
+    expect(heightAfter).toBe(20);
+  });
+
+  test('Click button "25x25"', () => {
+    const scope = renderWithProviders(<Panel />);
+
+    const { width: widthBefore, height: heightBefore } = scope.store.getState().game;
+    expect(widthBefore).toBe(20);
+    expect(heightBefore).toBe(20);
+
+    fireEvent.click(screen.getByText('25x25'));
+    const { width: widthAfter, height: heightAfter } = scope.store.getState().game;
+
+    expect(widthAfter).not.toEqual(widthBefore);
+    expect(heightAfter).not.toEqual(heightBefore);
+    expect(widthAfter).toBe(25);
+    expect(heightAfter).toBe(25);
+  });
+
+  test('Click button "35x35"', () => {
+    const scope = renderWithProviders(<Panel />);
+
+    const { width: widthBefore, height: heightBefore } = scope.store.getState().game;
+    expect(widthBefore).toBe(20);
+    expect(heightBefore).toBe(20);
+
+    fireEvent.click(screen.getByText('35x35'));
+    const { width: widthAfter, height: heightAfter } = scope.store.getState().game;
+
+    expect(widthAfter).not.toEqual(widthBefore);
+    expect(heightAfter).not.toEqual(heightBefore);
+    expect(widthAfter).toBe(35);
+    expect(heightAfter).toBe(35);
+  });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button';
-import { clearLand, nextTick, setRandom } from '../../RTK/gameSlice';
+import { clearLand, modifySize, nextTick, setRandom } from '../../RTK/gameSlice';
 import { useAppDispatch } from '../../RTK/hooks';
 import './Panel.css';
 
@@ -13,6 +13,10 @@ const Panel = () => {
   };
 
   const run = () => {
+    if (timer) {
+      return;
+    }
+
     timer = setInterval(() => {
       next();
     }, 400);
@@ -20,6 +24,7 @@ const Panel = () => {
 
   const stop = () => {
     clearInterval(timer);
+    timer = null;
   };
 
   const clear = () => {
@@ -30,6 +35,12 @@ const Panel = () => {
     dispatch(setRandom());
   };
 
+  const setSize = (value: number) => {
+    stop();
+    dispatch(modifySize({ value }));
+    dispatch(clearLand());
+  };
+
   return (
     <div className="buttonPanel" role="PanelRole">
       <Button name="next" text="Next" click={next} />
@@ -37,6 +48,9 @@ const Panel = () => {
       <Button name="stop" text="Stop" click={stop} />
       <Button name="clear" text="Clear" click={clear} />
       <Button name="random" text="Random" click={random} />
+      <Button name="15" text="20x20" click={() => setSize(20)} />
+      <Button name="20" text="25x25" click={() => setSize(25)} />
+      <Button name="25" text="35x35" click={() => setSize(35)} />
     </div>
   );
 };
